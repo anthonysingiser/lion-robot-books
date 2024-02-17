@@ -7,7 +7,7 @@ const openai = new OpenAI({
 });
 
 const oneRandomAnimal = animals[Math.round(Math.random(animals.length))]
-const wordsToInclude = sightWords.join(',')
+const wordsToInclude = sightWords.firstGrade.join(',')
 
 async function main() {
     const completion = await openai.chat.completions.create({
