@@ -1,12 +1,18 @@
 // list of animals to have as the subject of a story, to be chosen or randomly selected
 
-const animals = ['unicorn', 'chipmunk', 'squirrel', 'dog', 'kitten']
+const animals = ['unicorn', 'chipmunk', 'squirrel', 'dog', 'puppy', 'kitten', 'cat', 'fox', 'bat', 'mouse', 'robin', 'horse', 'cow', 'pig']
 
-// list of sight words that will be included in the story, 
+//Thoughts: 
+// lists of sight words that will be included in the story, 
 // the goal here should be to include multiple lists by grade level
 // that can be selected by the user. An alternative would be to use lists of words 
 // that are hard and easy for the user, and incorporate both.
 // Another alternative will be to select by phonetics, long a, short a, etc.   
+
+//Tasks:
+//these are Dolch sight words by grade level, add Fry sight words by grade level as well or instead of
+
+
 const sightWords = {
     preK: ['a', 'and', 'away', 'big', 'blue', 'can', 'come', 'down', 'find', 'for', 'funny', 'go', 'help', 'here', 'I', 'in', 'is', 'it',
         'jump', 'little', 'look', 'make', 'me', 'my', 'not', 'one', 'play', 'red', 'run', 'said', 'see', 'the', 'three', 'to', 'two', 'up',
@@ -42,8 +48,7 @@ const sightWords = {
         'kitty', 'leg', 'letter', 'man', 'men', 'milk', 'money', 'morning', 'mother', 'name', 'nest', 'night', 'paper', 'party', 'picture', 'pig', 'rabbit', 
         'rain', 'ring', 'robin', 'Santa Claus', 'school', 'seed', 'sheep', 'shoe', 'sister', 'snow', 'song', 'squirrel', 'stick', 'street', 'sun', 'table', 
         'thing', 'time', 'top', 'toy', 'tree', 'watch', 'water', 'way', 'wind', 'window', 'wood'
-    ],
-
+    ]
 }
 
 module.exports = {
