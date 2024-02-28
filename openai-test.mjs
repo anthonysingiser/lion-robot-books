@@ -1,13 +1,13 @@
 import 'dotenv/config';
 import OpenAI from 'openai';
-import { animals, sightWords } from './story-details.js';
+import { animals, dolchSightWords } from './story-details.js';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
 const oneRandomAnimal = animals[Math.floor(Math.random() * animals.length)];
-const wordsToInclude = sightWords.preK.join(',');
+const wordsToInclude = dolchSightWords.preK.join(',');
 
 // make prompt shorter. use around 10 words at a time for wordsToInclude, not 30.
 // structure story with similar but slightly different sentences, using wordsToInclude to build these sentences. 
