@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import OpenAI from 'openai';
-import { animals, dolchSightWords } from './story-details.js';
+import { animals, dolchSightWords, frySightWords } from './story-details.js';
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -12,6 +12,7 @@ const wordsToInclude = dolchSightWords.preK.join(',');
 // make prompt shorter. use around 10 words at a time for wordsToInclude, not 30.
 // structure story with similar but slightly different sentences, using wordsToInclude to build these sentences. 
 // test using list of nouns to include in these sentences, separately.
+// first generate a character desription, then use that description to generate the story, so that it remains consistent. This description will also be used to keep the images consistent.
 
 async function createStory() {
     const completion = await openai.chat.completions.create({
@@ -22,8 +23,8 @@ async function createStory() {
     return completion.choices[0].message.content
 }
 
-// async function to find total count of each word in wordsToInclude that is in the story
-// function should await the story and then return an object with each word in wordsToInclude as a key with the value being it's count in the story
+// async function to find total count of each word in wordsToInclude that is in the story for testing
+// function should await the story and then return an object with each word in wordsToInclude as a key with the value being the word's count in the story
 
 async function countWords(searchWords) {
     //create object with two keys, story, with the value of the story, and wordCount, with the value of the wordCount object
