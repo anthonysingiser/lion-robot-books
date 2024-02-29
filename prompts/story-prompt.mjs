@@ -22,7 +22,7 @@ const firstTenFryWords = frySightWords.one100.slice(0,10).join(',');
 
 async function createStory() {
     const completion = await openai.chat.completions.create({
-        messages: [{ role: 'user', content: `create ten sentences that use these words:${firstTenFryWords}. make the sentences primarily made from these words. each sentence will be slight variations on the first two sentences generated. The sentences together will tell a story focusing on the thoughts and feelings of a ${oneRandomAnimal}. ninety-five percent of each sentence should be words that I provided for you to use.`}],
+        messages: [{ role: 'user', content: `create ten sentences that use these words:${firstTenFryWords}. make the sentences primarily made from these words. each sentence will be slight variations on the first sentence generated. The sentences together will tell a story focusing on the thoughts and feelings of a ${oneRandomAnimal}.`}],
         model: 'gpt-3.5-turbo',
     });
 
