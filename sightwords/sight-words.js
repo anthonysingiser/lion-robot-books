@@ -1,6 +1,6 @@
 // list of animals to have as the subject of a story, to be chosen or randomly selected
 
-const animals = ['unicorn', 'chipmunk', 'squirrel', 'dog', 'puppy', 'kitten', 'cat', 'fox', 'bat', 'mouse', 'robin', 'horse', 'cow', 'pig']
+const animals = ['unicorn', 'chipmunk', 'squirrel', 'dog', 'puppy', 'kitten', 'cat', 'fox', 'bat', 'mouse', 'robin', 'horse', 'cow', 'pig', 'duck', 'goose', 'gecko', 'goat', 'giraffe', 'aardvark', 'beaver', 'elephant', 'otter', 'penguin', 'fly', 'grashopper', 'frog']
 
 //Thoughts: 
 // lists of sight words that will be included in the story, 
@@ -25,28 +25,26 @@ const dolchSightWords = {
         'with', 'yes'
     ],
 
-
     firstGrade: ['after', 'again', 'an', 'any', 'as', 'ask', 'by', 'could', 'every', 'fly', 'from', 'give', 'going', 'had', 'has', 'her', 'him', 'his',
         'how', 'just', 'know', 'let', 'live', 'may', 'of', 'old', 'once', 'open', 'over', 'put', 'round', 'some', 'stop', 'take', 'thank', 'them',
         'then', 'think', 'walk', 'were', 'when'
     ],
 
-    secondGrade: ['always', 'around', 'because', 'been', 'before', 'best', 'both', 'buy', 'call', 'cold', 'does', `don't`, 'fast', 'first', 'five', 'found', 
-        'gave', 'goes', 'green', 'its', 'made', 'many', 'off', 'or', 'pull', 'read', 'right', 'sing', 'sit', 'sleep', 'tell', 'their', 'these', 'those', 
+    secondGrade: ['always', 'around', 'because', 'been', 'before', 'best', 'both', 'buy', 'call', 'cold', 'does', `don't`, 'fast', 'first', 'five', 'found',
+        'gave', 'goes', 'green', 'its', 'made', 'many', 'off', 'or', 'pull', 'read', 'right', 'sing', 'sit', 'sleep', 'tell', 'their', 'these', 'those',
         'upon', 'us', 'use', 'very', 'wash', 'which', 'why', 'wish', 'work', 'would', 'write', 'your'
     ],
 
-    thirdGrade: ['about', 'better', 'bring', 'carry', 'clean', 'cut', 'done', 'draw', 'drink', 'eight', 'fall', 'far', 'full', 'got', 'grow', 'hold', 'hot', 
-        'hurt', 'if', 'keep', 'kind', 'laugh', 'light', 'long', 'much', 'myself', 'never', 'only', 'own', 'pick', 'seven', 'shall', 'show', 'six', 'small', 
+    thirdGrade: ['about', 'better', 'bring', 'carry', 'clean', 'cut', 'done', 'draw', 'drink', 'eight', 'fall', 'far', 'full', 'got', 'grow', 'hold', 'hot',
+        'hurt', 'if', 'keep', 'kind', 'laugh', 'light', 'long', 'much', 'myself', 'never', 'only', 'own', 'pick', 'seven', 'shall', 'show', 'six', 'small',
         'start', 'ten', 'today', 'together', 'try', 'warm'
     ],
 
-
-    nouns: ['apple', 'baby', 'back', 'ball', 'bear', 'bed', 'bell', 'bird', 'birthday', 'boat', 'box', 'boy', 'bread', 'brother', 'cake', 'car', 'cat', 
-        'chair', 'chicken', 'children', 'Christmas', 'coat', 'corn', 'cow', 'day', 'dog', 'doll', 'door', 'duck', 'egg', 'eye', 'farm', 'farmer', 'father', 
-        'feet', 'fire', 'fish', 'floor', 'flower', 'game', 'garden', 'girl', 'goodbye', 'grass', 'ground', 'hand', 'head', 'hill', 'home', 'horse', 'house', 
-        'kitty', 'leg', 'letter', 'man', 'men', 'milk', 'money', 'morning', 'mother', 'name', 'nest', 'night', 'paper', 'party', 'picture', 'pig', 'rabbit', 
-        'rain', 'ring', 'robin', 'Santa Claus', 'school', 'seed', 'sheep', 'shoe', 'sister', 'snow', 'song', 'squirrel', 'stick', 'street', 'sun', 'table', 
+    nouns: ['apple', 'baby', 'back', 'ball', 'bear', 'bed', 'bell', 'bird', 'birthday', 'boat', 'box', 'boy', 'bread', 'brother', 'cake', 'car', 'cat',
+        'chair', 'chicken', 'children', 'Christmas', 'coat', 'corn', 'cow', 'day', 'dog', 'doll', 'door', 'duck', 'egg', 'eye', 'farm', 'farmer', 'father',
+        'feet', 'fire', 'fish', 'floor', 'flower', 'game', 'garden', 'girl', 'goodbye', 'grass', 'ground', 'hand', 'head', 'hill', 'home', 'horse', 'house',
+        'kitty', 'leg', 'letter', 'man', 'men', 'milk', 'money', 'morning', 'mother', 'name', 'nest', 'night', 'paper', 'party', 'picture', 'pig', 'rabbit',
+        'rain', 'ring', 'robin', 'Santa Claus', 'school', 'seed', 'sheep', 'shoe', 'sister', 'snow', 'song', 'squirrel', 'stick', 'street', 'sun', 'table',
         'thing', 'time', 'top', 'toy', 'tree', 'watch', 'water', 'way', 'wind', 'window', 'wood'
     ]
 }
@@ -61,7 +59,7 @@ const frySightWords = {
     ],
 
     four100: ['across', 'against', 'area', 'become', 'best', 'better', 'birds', 'black', 'body', 'certain', 'cold', 'color', 'complete', 'covered', 'cried', "didn’t", 'dog', 'door', 'draw', 'during', 'early', 'easy', 'ever', 'fall', 'farm', 'fast', 'field', 'figure', 'fire', 'fish', 'five', 'friends', 'ground', 'happened', 'heard', 'himself', 'hold', 'horse', 'hours', 'however', 'hundred', "I’ll", 'king', 'knew', 'listen', 'low', 'map', 'mark', 'measure', 'money', 'morning', 'music', 'north', 'notice', 'numeral', 'order', 'passed', 'pattern', 'piece', 'plan', 'problem', 'products', 'pulled', 'questions', 'reached', 'red', 'remember', 'rock', 'room', 'seen', 'several', 'ship', 'short', 'since', 'sing', 'slowly', 'south', 'space', 'stand', 'step', 'sun', 'sure', 'table', 'today', 'told', 'top', 'toward', 'town', 'travel', 'true', 'unit', 'upon', 'usually', 'voice', 'vowel', 'war', 'waves', 'whole', 'wind', 'wood'],
-    
+
 
     five100: ['able', 'ago', 'among', 'ball', 'base', 'became', 'behind', 'boat', 'box', 'bread', 'bring', 'brought', 'building', 'built', 'cannot', 'carefully', 'check', 'circle', 'class', 'clear', 'common', 'contain', 'correct', 'course', 'dark', 'decided', 'deep', 'done', 'dry', 'English', 'equation', 'explain', 'fact', 'feel', 'filled', 'finally', 'fine', 'fly', 'force', 'front', 'full', 'game', 'gave', 'government', 'green', 'half', 'heat', 'heavy', 'hot', 'inches', 'include', 'inside', 'island', 'known', 'language', 'less', 'machine', 'material', 'minutes', 'note', 'nothing', 'noun', 'object', 'ocean', 'oh', 'pair', 'person', 'plane', 'power', 'produce', 'quickly', 'ran', 'rest', 'road', 'round', 'rule', 'scientists', 'shape', 'shown', 'six', 'size', 'special', 'stars', 'stay', 'stood', 'street', 'strong', 'surface', 'system', 'ten', 'though', 'thousands', 'understand', 'verb', 'wait', 'warm', 'week', 'wheels', 'yes', 'yet'],
 
@@ -81,5 +79,5 @@ const frySightWords = {
 module.exports = {
     animals,
     dolchSightWords,
-    frySightWords,   
+    frySightWords,
 }
