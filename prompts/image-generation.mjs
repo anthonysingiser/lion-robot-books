@@ -10,7 +10,9 @@ async function generateImage() {
         model: "dall-e-3",
         prompt: "A painting of a forest",
      });
-    console.log(image.data);
+    return image.data[0].url
 };
 
-generateImage();
+let imageUrl = generateImage().then((url) => console.log(url))
+
+console.log(imageUrl)
