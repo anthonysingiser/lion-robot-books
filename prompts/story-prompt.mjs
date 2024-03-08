@@ -1,14 +1,5 @@
-import 'dotenv/config';
-import OpenAI from 'openai';
-import { animals, dolchSightWords, frySightWords } from '../sightwords/sight-words.js';
-
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-
-const oneRandomAnimal = animals[Math.floor(Math.random() * animals.length)];
-// const wordsToInclude = dolchSightWords.preK.join(',');
-const firstTenFryWords = frySightWords.one100.slice(0,10).join(',');
+import { animals, frySightWords } from '../sightwords/sight-words.js';
+import {openai} from './apiClient.mjs';
 
 // make prompt shorter. use around 10 words at a time for words to include, not 30.
 // structure story with similar but slightly different sentences, using wordsToInclude to build these sentences. 
@@ -19,10 +10,13 @@ const firstTenFryWords = frySightWords.one100.slice(0,10).join(',');
 
 // create 10 sentences that use these words:${firstTenFryWords}. Make the sentences similar in structure, easy to read, but vary the words from the list that are used. All ten sentences together must use all the words from the list, will tell a children's story focusing on the thoughts and feelings of a %{oneRandomAnimal}, and will have a central conflict. 
 
+const oneRandomAnimal = animals[Math.floor(Math.random() * animals.length)];
+const firstTenFryWords = frySightWords.one100.slice(0,10).join(',');
 
-async function createStory() {
+async function createStory() {    
+
     const completion = await openai.chat.completions.create({
-        messages: [{ role: 'user', content: `create ten sentences that use these words:${firstTenFryWords}. make the sentences primarily made from these words. each sentence will be slight variations on the first sentence generated. The sentences together will tell a story focusing on the thoughts and feelings of a ${oneRandomAnimal}.`}],
+        messages: [{ role: 'user', content: `create ten sentences that use these words:${firstTenFryWords}. make the sentences primarily made from these words. each sentence will be slight variations on the first sentence generated. The sentences together will tell a story focusing on the thoughts and feelings of a ${oneRandomAnimal}. The story needs a cnetral conflict.`}],
         model: 'gpt-3.5-turbo',
     });
 
@@ -52,3 +46,9 @@ async function countWords(searchWords) {
 }
 
 countWords(firstTenFryWords).then((story) => console.log(story));
+
+
+export {
+    createStory,
+    countWords
+}

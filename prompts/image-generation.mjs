@@ -1,18 +1,15 @@
-import OpenAI from "openai";
-import 'dotenv/config';
+import { openai } from "./apiClient.mjs";
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-
-async function generateImage() {
+async function generateImage(prompt) {
     const image = await openai.images.generate({
         model: "dall-e-3",
-        prompt: "A painting of a forest",
-     });
-    return image.data[0].url
-};
+        prompt: prompt,
+    });
+    return image.data[0].url;
+}
 
-let imageUrl = generateImage().then((url) => console.log(url))
+// generateImage("a painting of a cat").then((image) => console.log(image));
 
-console.log(imageUrl)
+export {
+    generateImage
+}
