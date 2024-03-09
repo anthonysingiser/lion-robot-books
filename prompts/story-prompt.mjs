@@ -16,7 +16,7 @@ const firstTenFryWords = frySightWords.one100.slice(0,10).join(',');
 async function createStory() {    
 
     const completion = await openai.chat.completions.create({
-        messages: [{ role: 'user', content: `create ten sentences that use these words:${firstTenFryWords}. make the sentences primarily made from these words. each sentence will be slight variations on the first sentence generated. The sentences together will tell a story focusing on the thoughts and feelings of a ${oneRandomAnimal}. The story needs a cnetral conflict.`}],
+        messages: [{ role: 'user', content: `create ten sentences that use these words:${firstTenFryWords}. make the sentences primarily made from these words. each sentence will be slight variations on the first sentence generated. The sentences together will tell a story focusing on the thoughts and feelings of a ${oneRandomAnimal}. The story needs a central conflict, that is resolved by the end.`}],
         model: 'gpt-3.5-turbo',
     });
 
@@ -45,7 +45,7 @@ async function countWords(searchWords) {
     }
 }
 
-countWords(firstTenFryWords).then((story) => console.log(story));
+// countWords(firstTenFryWords).then((story) => console.log(story));
 
 
 export {
