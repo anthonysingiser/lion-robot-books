@@ -17,6 +17,10 @@ import {generateImage} from './prompts/image-generation.mjs';
 
 
 //function createBook, uses createStory and generateImage to return each sentence of the story with an image url generated for it.
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function createBook() {
     let storyArray = await createStory().then((story)  => {
         return story.split('.').filter((sentence) => {
@@ -24,13 +28,14 @@ async function createBook() {
         })
     });
 
-    let imageArray = await storyArray.map((sentence) => {
-        return generateImage(sentence);
-    });
+    let imageArray = [];
+    for (let sentence of storyArray) {
+        let image = await generateImage(sentence);
+        imageArray.push(image);
+        await delay(60000 / 5); // Delay for 1/5th of a minute
+    }
 
     return {storyArray, imageArray};
 }
-
-//this 'works' but is exceeding my rate limits for the openai api. I need to find a way to limit the number of requests I'm making to the api.
 
 createBook().then((book) => console.log(book));
