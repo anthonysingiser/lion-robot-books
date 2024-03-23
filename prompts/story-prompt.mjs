@@ -10,13 +10,12 @@ import {openai} from './apiClient.mjs';
 
 // create 10 sentences that use these words:${firstTenFryWords}. Make the sentences similar in structure, easy to read, but vary the words from the list that are used. All ten sentences together must use all the words from the list, will tell a children's story focusing on the thoughts and feelings of a %{oneRandomAnimal}, and will have a central conflict. 
 
-const oneRandomAnimal = animals[Math.floor(Math.random() * animals.length)];
 const firstTenFryWords = frySightWords.one100.slice(0,10).join(',');
 
-async function createStory() {    
+async function createStory(mainCharacter) {    
 
     const completion = await openai.chat.completions.create({
-        messages: [{ role: 'user', content: `create ten sentences that use these words:${firstTenFryWords}. make the sentences primarily made from these words. each sentence will be slight variations on the first sentence generated. The sentences together will tell a story focusing on the thoughts and feelings of a ${oneRandomAnimal}. The story needs a central conflict, that is resolved by the end.`}],
+        messages: [{ role: 'user', content: `create ten sentences that use these words:${firstTenFryWords}. make the sentences primarily made from these words. each sentence will be slight variations on the first sentence generated. The sentences together will tell a story focusing on the thoughts and feelings of a ${mainCharacter}. The story needs a central conflict, that is resolved by the end.`}],
         model: 'gpt-3.5-turbo',
     });
 

@@ -1,5 +1,6 @@
-import {createStory} from './prompts/story-prompt.mjs';
-import {generateImage} from './prompts/image-generation.mjs';
+import { createStory } from './prompts/story-prompt.mjs';
+import { generateImage } from './prompts/image-generation.mjs';
+import { animals } from './sightwords/sight-words.js';
 
 // let storyArray;
 
@@ -22,20 +23,28 @@ function delay(ms) {
 }
 
 async function createBook() {
-    let storyArray = await createStory().then((story)  => {
+    let mainCharacter = animals[Math.floor(Math.random() * animals.length)];
+    let storyArray = await createStory(mainCharacter).then((story) => {
         return story.split('.').filter((sentence) => {
             return !/[0-9\n]/.test(sentence);
         })
     });
 
-    let imageArray = [];
-    for (let sentence of storyArray) {
-        let image = await generateImage(sentence);
-        imageArray.push(image);
-        await delay(60000 / 5); // Delay for 1/5th of a minute
+    let book = [];
+    for (let i = 0; i < storyArray.length; i += 5) {
+        let promises = storyArray.slice(i, i + 5).map(sentence => generateImage(sentence, mainCharacter));
+        let images = await Promise.allSettled(promises);
+        let page = images.map((result, index) => ({
+            sentence: storyArray[i + index],
+            image: result.status === 'fulfilled' ? result.value : null
+        }));
+        book.push(...page);
+        if (i + 5 < storyArray.length) {
+            await delay(60000); // Delay for a minute
+        }
     }
 
-    return {storyArray, imageArray};
+    return book;
 }
 
 createBook().then((book) => console.log(book));
