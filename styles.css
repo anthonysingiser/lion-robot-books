@@ -1,0 +1,12 @@
+.book-page {
+    margin-bottom: 20px;
+}
+.book-page img {
+    width: 100%;
+    height: auto;
+}
+.loading-bar {
+    width: 0;
+    height: 20px;
+    background-color: #4CAF50;
+}

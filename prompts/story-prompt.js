@@ -1,5 +1,5 @@
 import { animals, frySightWords } from '../sightwords/sight-words.js';
-import {openai} from './apiClient.mjs';
+import {openai} from './apiClient.js';
 
 // make prompt shorter. use around 10 words at a time for words to include, not 30.
 // structure story with similar but slightly different sentences, using wordsToInclude to build these sentences. 

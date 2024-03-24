@@ -1,4 +1,4 @@
-import { openai } from "./apiClient.mjs";
+import { openai } from "./apiClient.js";
 
 async function generateImage(prompt, animal) {
     const image = await openai.images.generate({

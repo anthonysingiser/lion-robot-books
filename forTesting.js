@@ -1,5 +1,5 @@
-import { createStory } from './prompts/story-prompt.mjs';
-import { generateImage } from './prompts/image-generation.mjs';
+import { createStory } from './prompts/story-prompt.js';
+import { generateImage } from './prompts/image-generation.js';
 import { animals } from './sightwords/sight-words.js';
 
 // let storyArray;
@@ -47,4 +47,4 @@ async function createBook() {
     return book;
 }
 
-createBook().then((book) => console.log(book));
+export { createBook };
